@@ -1,0 +1,45 @@
+package exercice_6;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.concurrent.atomic.AtomicInteger;
+
+public class Utilisateur implements Runnable{
+	private SystemReservation s;
+	private final int nbTentatives;
+	private final int id;
+	private final AtomicInteger totalReserve;
+    private final AtomicInteger totalAnnule;
+	
+	
+	public Utilisateur(SystemReservation s, int id,int nbTentatives, AtomicInteger totalReserve, AtomicInteger  totalAnnule) {
+		this.s = s;
+		this.id = id;
+		this.nbTentatives = nbTentatives; 
+		this.totalReserve = totalReserve;
+		this.totalAnnule = totalAnnule;
+	}
+	
+	@Override
+    public void run() {
+        int i = 0; 
+        Random r = new Random();
+        List<Integer> mesPlaces = new ArrayList<>();
+        
+        while(i < nbTentatives) {
+            int place = r.nextInt(s.size());
+            if(s.isAvailable(place) && s.reserver(place, i)) {
+            	mesPlaces.add(place);
+            	totalReserve.incrementAndGet();
+            }
+            
+            if(!mesPlaces.isEmpty() && r.nextInt(3) == 0) {
+            	int p = mesPlaces.remove(mesPlaces.size()-1);
+            	if(s.cancel(p, i)) {
+            		totalAnnule.incrementAndGet();
+            	}
+            }
+            i++;
+        }
+    }
+}

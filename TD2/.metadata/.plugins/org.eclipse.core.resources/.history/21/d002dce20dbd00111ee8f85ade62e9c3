@@ -1,0 +1,21 @@
+package exercice_2;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Compte c = new Compte(500);
+		
+		Mouvement m1 = new Mouvement(c,100);
+		Mouvement m2 = new Mouvement(c,-50);
+		
+		Thread t1 = new Thread(m1, "Thread-Depot");
+		Thread t2 = new Thread(m2, "Thread-Retrait");
+		
+		t1.start();
+		t2.start();
+				
+
+	}
+
+}

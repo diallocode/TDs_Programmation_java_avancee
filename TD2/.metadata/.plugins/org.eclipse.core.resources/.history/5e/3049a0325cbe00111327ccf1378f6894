@@ -1,0 +1,18 @@
+package exercice_5;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class Consomateurs implements Runnable{
+	private Queue<Commande> file; 
+	
+	public Consomateurs(Queue<Commande> file) {
+		this.file = file;
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+}

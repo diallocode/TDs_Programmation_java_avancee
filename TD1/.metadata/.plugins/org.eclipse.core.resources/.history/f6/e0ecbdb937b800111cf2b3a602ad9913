@@ -1,0 +1,7 @@
+package Exercice6;
+
+public class EntiersTrier {
+	private int[] tab;
+
+
+}

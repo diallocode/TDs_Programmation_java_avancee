@@ -1,0 +1,56 @@
+package exercice_6;
+
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+
+public class SystemReservation {
+	private int MAX_PLACES = 100;
+	private int[] places;
+	private final ReadWriteLock lock = new ReentrantReadWriteLock();
+	private final Condition placeLibre = lock.writeLock().newCondition(); // Verrou d'attente pour l'ecriture
+	
+	public SystemReservation(int[] p, int nb) {
+		this.places = p;
+		this.MAX_PLACES = nb;
+	}
+	
+	// places[i] : 1--> occupe, 0-->libre
+	public  boolean isAvailable(int place) {
+		lock.readLock().lock();
+		try {
+            return places[place] == 0;
+        } finally {
+            lock.readLock().unlock();
+        }
+	}
+	
+	public void reserver(int place) {
+		lock.writeLock().lock();
+		try {
+			while(!isAvailable(place)) {
+				// pas de wait et notify avec les locks
+				try {
+					placeLibre.await();
+				}  catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace(); 
+					}
+			}
+			this.places[place] = 1;
+		
+		} finally{
+			lock.writeLock().unlock();
+		}
+	}
+	
+	public void cancel(int place) {
+		lock.writeLock().lock();
+		try {
+			this.places[place] = 0;
+		} finally {
+			lock.writeLock().unlock();
+		}
+		
+	}
+}

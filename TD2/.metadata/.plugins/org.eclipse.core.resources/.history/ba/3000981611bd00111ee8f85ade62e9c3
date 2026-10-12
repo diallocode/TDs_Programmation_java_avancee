@@ -1,0 +1,14 @@
+package exercice_3;
+
+public class Sortie {
+	private Compteur c;
+	
+	public Sortie(Compteur c) {
+		this.c = c;
+	}
+	
+	public void sortie() {
+		c.decremente(0); // Aleatoire
+	}
+
+}

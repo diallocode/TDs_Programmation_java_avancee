@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+/home/barrydiallo/Documents/INSA-4A-STI/Java avancee/TD2/.metadata/.plugins/org.eclipse.jdt.core
+715345095.index
+1865797976.index
+3919092853.index

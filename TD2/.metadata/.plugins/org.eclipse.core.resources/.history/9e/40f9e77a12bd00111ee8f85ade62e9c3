@@ -1,0 +1,30 @@
+package exercice_3;
+
+public class Jardin {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Compteur c = new Compteur(100);
+		
+		Entre e = new Entre(c);
+		Sortie s = new Sortie(c);
+		
+		Thread t = new Thread(e);
+		Thread T = new Thread(s);
+		
+		Thread t1 = new Thread(e);
+		Thread T1 = new Thread(s);
+		
+		Thread t2 = new Thread(e);
+		Thread T2 = new Thread(s);
+		
+		Thread t3 = new Thread(e);
+		Thread T3 = new Thread(s);
+		
+		Thread t4 = new Thread(e);
+		Thread T4 = new Thread(s);
+		
+
+	}
+
+}

@@ -1,0 +1,29 @@
+package exercice_2;
+
+public class Compte {
+	private double solde;
+
+	
+	public Compte(double solde) {
+		this.solde=solde;
+	}
+	
+	
+	
+	public void afficherSolde() {
+		System.out.println("Solde disponible dans le compte : " + this.solde);
+	}
+	
+	
+	
+	public double getSolde() {
+		return this.solde;
+	}
+	
+	
+	
+	public synchronized void modifSolde(double montant) {
+		this.solde = this.solde+montant;
+	}
+
+}

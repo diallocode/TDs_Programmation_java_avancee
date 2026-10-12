@@ -1,0 +1,50 @@
+package exercice_6;
+
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+
+public class SystemReservation {
+    private int MAX_PLACES = 100;
+    private int[] places;
+    private final ReadWriteLock lock = new ReentrantReadWriteLock();
+    private final Condition placeLibre = lock.writeLock().newCondition(); // Verrou d'attente pour l'écriture
+    
+    public SystemReservation(int[] p, int nb) {
+        this.places = p;
+        this.MAX_PLACES = nb;
+    }
+    
+    // Lecture simultanée autorisée pour plusieurs threads
+    public boolean isAvailable(int place) {
+        lock.readLock().lock();
+        try {
+            return places[place] == 0;
+        } finally {
+            lock.readLock().unlock();
+        }
+    }
+    
+    public void reserver(int place) throws InterruptedException {
+        lock.writeLock().lock();
+        try {
+            // On vérifie directement le tableau puisque nous avons le verrou d'écriture
+            while (places[place] != 0) {
+                placeLibre.await(); // Libère le verrou, attend, puis le récupère au réveil
+            }
+            this.places[place] = 1;
+        } finally {
+            lock.writeLock().unlock();
+        }
+    }
+    
+    public void cancel(int place) {
+        lock.writeLock().lock();
+        try {
+            this.places[place] = 0;
+            placeLibre.signalAll(); // 🔴 TRÈS IMPORTANT : Réveille tous les threads en attente !
+        } finally {
+            lock.writeLock().unlock();
+        }
+    }
+}

@@ -1,0 +1,50 @@
+package exercice_6;
+import java.util.Random;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// Places
+		int MAX_PLACES = 100;
+		int[] tab = new int[100];	
+		// All places is available 
+		for(int i = 0; i< MAX_PLACES; i++) {
+			tab[i] = -1;
+		}
+		SystemReservation s = new SystemReservation(tab,MAX_PLACES);
+		 
+		int NB_THREADS = 50;
+		Utilisateur[] users = new Utilisateur[NB_THREADS];
+		Random r = new Random();
+		for(int i = 0; i<NB_THREADS; i++) {
+			int alea = r.nextInt(10);
+			users[i] = new Utilisateur(s, alea);
+		}
+		
+		Thread[] T = new Thread[NB_THREADS];
+		for(int i = 0; i < NB_THREADS; i++) {
+			T[i] = new Thread(users[i], "Utilisateur_"+i);
+		}
+		
+		// Start
+		for(int i = 0; i < NB_THREADS; i++) {
+			T[i].start();
+		}
+
+		for(int i = 0; i < NB_THREADS; i++) {
+			try {
+				T[i].join();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		System.out.println("Etats des places :");
+		for(int i = 0; i < MAX_PLACES; i++) {
+			System.out.println("Place_"+i+" : " + tab[i]);
+		}
+
+	}
+
+}

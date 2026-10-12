@@ -1,0 +1,21 @@
+package exercice_5;
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class System {
+	private static int nbCommande = 20;
+	private Queue<Commande> file; 
+	
+	public System(Queue<Commande> file) {
+		this.file = file;
+	}
+	
+	public synchronized void retCommande() {
+		
+	}
+	
+	public synchronized void addCommande(Commande c) {
+			
+	}
+
+}

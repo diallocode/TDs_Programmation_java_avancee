@@ -1,0 +1,20 @@
+package exercice_8;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Serveur serveur = new Serveur();
+
+        // Simuler l'arrivée de plusieurs clients simultanés
+        int nombreClients = 10;
+        for (int i = 1; i <= nombreClients; i++) {
+            Client client = new Client(serveur, i);
+            new Thread(client).start();
+        }
+
+        // Arrêt propre du serveur après soumission
+        serveur.arreterServeur();
+	}
+
+}

@@ -1,0 +1,17 @@
+package exercice_3;
+import java.util.Random;
+
+public class Entre {
+	
+	private Compteur c;
+	
+	public Entre(Compteur c) {
+		this.c = c;
+	}
+	
+	public void entrer() {
+		Random r = new Random();
+		int n = r.nextInt(10);	// Aleatoire de passant 
+		c.incremente(n); 
+	}
+}

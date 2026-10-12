@@ -1,0 +1,24 @@
+package Exercice6;
+
+public class EntiersTrier {
+	private int[] tab;
+	private int taille;
+	
+	public EntiersTrier(int[] tab, int taille) {
+		this.tab = tab;
+		this.taille = taille;
+	}
+
+	public void inserer(int entier) {
+		
+	}
+	
+	public void retirer(int entier) {
+			
+	}
+	
+	public void afficher() {
+			
+	}
+
+}

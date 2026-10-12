@@ -1,0 +1,16 @@
+package exercice_8;
+
+public class Worker implements Runnable {
+	private Requete r;
+	
+	public Worker(Requete r) {
+		this.r = r;
+	}
+	
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

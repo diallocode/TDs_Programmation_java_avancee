@@ -1,0 +1,19 @@
+package exercice_8;
+
+import java.util.concurrent.Callable;
+
+public class Worker implements Callable<Resultat> {
+	private Requete r;
+	
+	public Worker(Requete r) {
+		this.r = r;
+	}
+	
+
+	@Override
+	public Resultat call() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

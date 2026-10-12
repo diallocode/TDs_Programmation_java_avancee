@@ -1,0 +1,6 @@
+package Exercice3;
+
+public interface Homme {
+
+	public void identite(); 
+}

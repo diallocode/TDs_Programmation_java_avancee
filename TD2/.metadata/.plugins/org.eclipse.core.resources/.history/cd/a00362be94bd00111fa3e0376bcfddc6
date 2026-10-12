@@ -1,0 +1,50 @@
+package exercice_4;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int nbComptes = 100;
+		
+		Compte[] compte = new Compte[nbComptes];
+		
+		for(int i = 0; i<nbComptes; i++) {
+			compte[i] = new Compte(i,1000);
+		}
+		
+		int nbTransfert = 100000;
+		int nbThreads = 20;
+		int n = nbTransfert/nbThreads;
+		Operations o = new Operations(compte,n);
+		
+		// Threads.
+		Thread[] t = new Thread[nbThreads];
+		for(int i = 0; i<nbThreads; i++) {
+			t[i] = new Thread(o, "Thread-" + i);
+		}
+		
+		// Start
+		for(int i=0; i<nbThreads; i++) {
+			t[i].start();
+		}
+		
+		//
+		for(int i=0; i<nbThreads; i++) {
+			try {
+				t[i].join(); 
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		double solde_f = 0;
+		for(int i=0; i<nbComptes; i++) {
+			double solde = compte[i].getSolde();
+			solde_f += solde;
+		}
+		
+		System.out.println("Solde apres operations : " + solde_f);
+	}
+
+}

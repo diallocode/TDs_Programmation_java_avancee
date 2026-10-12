@@ -1,0 +1,13 @@
+package exercice_2;
+
+public class Mouvement implements Runnable {
+	
+	private Compte c;
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

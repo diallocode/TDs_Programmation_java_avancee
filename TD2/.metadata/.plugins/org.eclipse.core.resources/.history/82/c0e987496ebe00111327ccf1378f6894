@@ -1,0 +1,9 @@
+package exercice_6;
+
+public class SystemReservation {
+	private int MAX_PLACES = 100;
+	
+	public SystemReservation() {
+		
+	}
+}

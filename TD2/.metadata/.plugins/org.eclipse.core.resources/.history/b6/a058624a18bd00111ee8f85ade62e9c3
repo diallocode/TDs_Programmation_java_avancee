@@ -1,0 +1,13 @@
+package exercice_4;
+
+public class Operations {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Compte A = new Compte(1);
+		Compte B = new Compte(2);
+		
+		
+	}
+
+}

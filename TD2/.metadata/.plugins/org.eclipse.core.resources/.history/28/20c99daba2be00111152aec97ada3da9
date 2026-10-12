@@ -1,0 +1,30 @@
+package exercice_8;
+
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
+public class Serveur {
+	ExecutorService pool = Executors.newFixedThreadPool(100);
+	
+	public Future<Resultat> recevoirRequete(Requete requete) {
+        // 1. On crée le worker en lui passant la requête
+        Worker worker = new Worker(requete);
+        
+        // 2. On soumet le worker au Pool de threads via submit()
+        // Le pool se charge de l'assigner à un thread libre ou de le mettre en attente.
+        Future<Resultat> futureResultat = pool.submit(worker);
+        
+        return futureResultat; // Permet de récupérer le résultat de manière asynchrone[cite: 3]
+    }
+
+    /**
+     * Méthode pour arrêter proprement le serveur à la fin[cite: 3]
+     */
+    public void arreterServeur() {
+        pool.shutdown();
+    }
+	
+	
+}

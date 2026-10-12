@@ -1,0 +1,38 @@
+package exercice_5;
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class FileAttente {
+	private static int MAX_CAPACITE = 20;
+	private LinkedList<Commande> file; 
+	
+	public FileAttente() {
+		this.file = new LinkedList<>();
+	}
+	
+	public synchronized void retCommande() {
+		while(file.size() <= 0) {
+			System.out.println("⏳ [FILE VIDE] Un consommateur attend...");
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		file.remove();
+		System.out.println("➖ [RETRAIT] Commande " + c.getId() + " traitée | Taille de la file : " + file.size());
+		notify();
+	}
+	
+	public synchronized void addCommande(Commande c) throws InterruptedException {
+			if(file.size() >= MAX_CAPACITE) {
+				System.out.println("⏳ [FILE PLEINE (" + file.size() + ")] Un producteur attend...");
+				wait();
+			}
+			file.add(c);
+			System.out.println("➕ [AJOUT] Commande " + c.getId() + " | Taille de la file : " + file.size());
+			notify();
+	}
+
+}

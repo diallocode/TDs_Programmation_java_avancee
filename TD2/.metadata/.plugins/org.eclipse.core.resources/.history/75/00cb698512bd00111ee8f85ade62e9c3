@@ -1,0 +1,47 @@
+package exercice_3;
+
+public class Jardin {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Compteur c = new Compteur(100);
+		
+		Entre e = new Entre(c);
+		Sortie s = new Sortie(c);
+		
+		// Thread
+		Thread t = new Thread(e);
+		Thread T = new Thread(s);
+		
+		Thread t1 = new Thread(e);
+		Thread T1 = new Thread(s);
+		
+		Thread t2 = new Thread(e);
+		Thread T2 = new Thread(s);
+		
+		Thread t3 = new Thread(e);
+		Thread T3 = new Thread(s);
+		
+		Thread t4 = new Thread(e);
+		Thread T4 = new Thread(s);
+		
+		// Start
+		t.start();
+		T.start();
+		
+		t1.start();
+		T1.start();
+		
+		t2.start();
+		T2.start();
+		
+		t3.start();
+		T3.start();
+		
+		t4.start();
+		T4.start();
+		
+
+	}
+
+}

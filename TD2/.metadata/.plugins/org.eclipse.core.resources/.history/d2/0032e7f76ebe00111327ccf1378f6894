@@ -1,0 +1,14 @@
+package exercice_6;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// Places
+		int MAX_PLACES = 100;
+		int[] tab;		// tableau qui stocke la disponibilite de la place
+		SystemReservation s = new SystemReservation(tab, MAX_PLACES);
+		
+
+	}
+
+}

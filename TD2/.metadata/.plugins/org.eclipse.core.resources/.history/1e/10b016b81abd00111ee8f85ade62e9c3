@@ -1,0 +1,23 @@
+package exercice_4;
+
+public class Operations implements Runnable {
+	private Compte A;
+	private Compte B;
+	
+	public Operations(Compte A, Compte B) {
+		this.A = A;
+		this.B = B;
+	}
+	
+	@Override
+	public void run() {
+		int i = 0;
+		while(i < 5000) {
+			
+		}
+		
+	} 
+		
+		
+
+}

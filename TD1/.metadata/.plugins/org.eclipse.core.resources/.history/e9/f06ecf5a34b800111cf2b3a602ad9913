@@ -1,0 +1,11 @@
+package Exercice3;
+
+public class Client extends Personne implements Homme{
+	private int numero;
+	
+	public Client(String name, String prenom, int numero) {
+		super(name, prenom);
+		this.numero = numero;
+	}
+
+}

@@ -1,0 +1,36 @@
+package exercice_6;
+
+public class SystemReservation {
+	private int MAX_PLACES = 100;
+	private int[] places;
+	
+	public SystemReservation(int[] p, int nb) {
+		this.places = p;
+		this.MAX_PLACES = nb;
+	}
+	
+	// places[i] : 1--> occupe, 0-->libre
+	public synchronized boolean isAvailable(int place) {
+		if(this.places[place] == 0) {
+			return true;
+		}
+		return false;
+	}
+	
+	public synchronized void reserver(int place) {
+		while(!isAvailable(place)) {
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		this.places[place] = 1;
+		notify();
+	}
+	
+	public synchronized void cancel(int place) {
+		this.places[place] = 0;
+	}
+}

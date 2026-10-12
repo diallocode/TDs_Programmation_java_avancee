@@ -1,0 +1,16 @@
+package Exercice3;
+
+public class Peuple {
+	int nbHommes = 0;
+	Homme[] pays = new Homme[100];
+	
+	public void naissance(Homme h) {
+		pays[nbHommes] = h;
+		nbHommes++;
+	}
+	
+	
+	public void explorer() {
+		
+	}
+}

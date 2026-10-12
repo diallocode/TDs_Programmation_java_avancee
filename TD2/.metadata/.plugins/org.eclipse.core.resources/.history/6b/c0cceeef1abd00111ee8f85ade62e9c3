@@ -1,0 +1,23 @@
+package exercice_4;
+
+public class Operations implements Runnable {
+	private Compte[] comptes;
+	
+	
+	public Operations(Compte[] A) {
+		this.comptes = A;
+		
+	}
+	
+	@Override
+	public void run() {
+		int i = 0;
+		while(i < 5000) {
+			
+		}
+		
+	} 
+		
+		
+
+}

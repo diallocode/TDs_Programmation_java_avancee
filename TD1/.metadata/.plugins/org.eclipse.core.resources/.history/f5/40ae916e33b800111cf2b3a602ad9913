@@ -1,0 +1,13 @@
+package Exercice3;
+
+public class Personne implements Homme{
+
+	private String nom;
+	private String prenom;
+	
+	public Personne(String name, String prenom) {
+		this.nom = name;
+		this.prenom = prenom;
+	}
+	
+}

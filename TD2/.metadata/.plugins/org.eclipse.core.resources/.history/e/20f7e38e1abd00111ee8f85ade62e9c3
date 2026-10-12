@@ -1,0 +1,14 @@
+package exercice_4;
+
+public class Operations implements Runnable {
+	
+	
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	} 
+		
+		
+
+}

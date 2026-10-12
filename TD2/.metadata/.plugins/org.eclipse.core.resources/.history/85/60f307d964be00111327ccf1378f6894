@@ -1,0 +1,22 @@
+package exercice_5;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class Consomateurs implements Runnable{
+	private FileAttente file;
+	
+	public Consomateurs(FileAttente f) {
+		this.file = f;
+	}
+
+	@Override
+	public void run() {
+		int i = 0;
+		int nbRetirer = 50;
+		while(i<nbRetirer) {
+			file.retCommande();
+		}
+	}
+	
+}

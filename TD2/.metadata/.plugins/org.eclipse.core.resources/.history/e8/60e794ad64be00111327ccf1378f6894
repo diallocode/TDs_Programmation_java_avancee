@@ -1,0 +1,32 @@
+package exercice_5;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class Producteurs implements Runnable{
+	private FileAttente file;
+	
+	public Producteurs(FileAttente f) {
+		this.file = f;
+	}
+
+	@Override
+	public void run() {
+		int i = 0;
+		int nbCommandes = 100;
+		while(i < nbCommandes) {
+			double solde = 1+100*33;
+			Commande c = new Commande(i, "Client_"+i, solde);
+			try {
+				file.addCommande(c);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			i++; 
+		}
+	}
+	
+	
+	
+}

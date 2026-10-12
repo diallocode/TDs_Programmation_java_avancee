@@ -1,0 +1,25 @@
+package exercice_2;
+
+public class Mouvement implements Runnable {
+	private Compte c;
+	private double montant;
+
+	
+	public Mouvement(Compte c, double montant) {
+		this.montant = montant;
+		this.c=c;
+	}
+	
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		for(int i = 0; i < 3; i++) {
+			c.modifSolde(montant);
+			System.out.println("Nom : " + Thread.currentThread().getName());
+			System.out.println("priority : " + Thread.currentThread().getPriority());
+			System.out.println("Nouveau Solde : " + c.getSolde());
+		}			
+
+	}
+
+}

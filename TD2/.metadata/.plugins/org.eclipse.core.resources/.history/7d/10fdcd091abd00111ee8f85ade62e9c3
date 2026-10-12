@@ -1,0 +1,16 @@
+package exercice_4;
+
+public class Operations implements Runnable {
+	private Compte A;
+	private Compte B;
+	
+	
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	} 
+		
+		
+
+}

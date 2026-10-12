@@ -1,0 +1,17 @@
+package exercice_5;
+
+public class Commande {
+	private int id;
+	private String client;
+	private double montant;
+	
+	public Commande(int identifiant, String client, double montant) {
+		this.id = identifiant;
+		this.client = client;
+		this.montant = montant;
+	}
+
+	public int getId() {
+		return this.id;
+	}
+}

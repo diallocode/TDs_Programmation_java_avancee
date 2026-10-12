@@ -1,0 +1,40 @@
+package exercice_6;
+import java.util.Random;
+
+public class Utilisateur implements Runnable{
+	private SystemReservation s;
+	private final int nbTentatives;
+	private final int totalReserve;
+    private final int totalAnnule;
+	
+	
+	public Utilisateur(SystemReservation s, int nbTentatives, int totalReserve, int  totalAnnule) {
+		this.s = s;
+		this.nbTentatives = nbTentatives;
+		this.totalReserve = totalReserve;
+		this.totalAnnule = totalAnnule;
+	}
+	
+	@Override
+    public void run() {
+        int i = 0;
+        Random r = new Random();
+        while(i < nbPlaces) {
+            int res = r.nextInt(100);
+            try {
+                // On réserve une place
+                s.reserver(res,i);
+                
+                // On simule un petit traitement...
+                Thread.sleep(5);
+                
+                // On libère ensuite la place pour permettre aux autres d'avancer
+                s.cancel(res);
+                
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            i++;
+        }
+    }
+}

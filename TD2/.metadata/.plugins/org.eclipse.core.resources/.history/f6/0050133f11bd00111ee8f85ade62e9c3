@@ -1,0 +1,17 @@
+package exercice_3;
+import java.util.Random;
+
+public class Sortie {
+	private Compteur c;
+	
+	public Sortie(Compteur c) {
+		this.c = c;
+	}
+	
+	public void sortie() {
+		Random r = new Random();
+		int n = r.nextInt(100);
+		c.decremente(n); // Aleatoire
+	}
+
+}

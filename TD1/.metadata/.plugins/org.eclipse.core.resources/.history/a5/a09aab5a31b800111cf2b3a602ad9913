@@ -1,0 +1,9 @@
+package Exercice2;
+
+public class Forgeron {
+
+	public Forgeron() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

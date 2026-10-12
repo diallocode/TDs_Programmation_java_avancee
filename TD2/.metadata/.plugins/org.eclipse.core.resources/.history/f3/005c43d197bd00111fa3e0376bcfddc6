@@ -1,0 +1,9 @@
+package exercice_5;
+
+public class Producteurs {
+	private Commande c;
+	
+	public Producteurs(Commande c) {
+		this.c = c;
+	}
+}

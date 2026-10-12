@@ -1,0 +1,32 @@
+package exercice_4;
+import java.util.Random;
+
+public class Operations implements Runnable {
+	private Compte[] comptes;
+	
+	
+	public Operations(Compte[] A){
+		this.comptes = A;
+		
+	}
+	
+	@Override
+	public void run() {
+		int i = 0;
+		while(i < 5000) {
+			Random r = new Random();
+			int A = r.nextInt(99);
+			int B = r.nextInt(99);
+			if(A != B) {
+				int montant = r.nextInt(1000);
+				comptes[A].retirer(montant);
+				comptes[B].ajouter(montant);
+			}
+			i++;
+		}
+		
+	} 
+		
+		
+
+}

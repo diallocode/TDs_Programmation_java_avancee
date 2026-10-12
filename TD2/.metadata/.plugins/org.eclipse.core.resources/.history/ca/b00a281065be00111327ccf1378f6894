@@ -1,0 +1,16 @@
+package exercice_5;
+import java.util.LinkedList;
+import java.util.Queue;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Queue<Commande> f = null;
+		FileAttente file = new FileAttente(f);
+		
+		Producteurs p1 = new Producteurs(file);
+	}
+
+}

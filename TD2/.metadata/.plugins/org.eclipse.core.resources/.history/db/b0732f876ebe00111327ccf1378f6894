@@ -1,0 +1,16 @@
+package exercice_6;
+
+public class SystemReservation {
+	private int MAX_PLACES = 100;
+	private int[] places;
+	
+	public SystemReservation(int[] p) {
+		this.places = p;
+	}
+	
+	public boolean isAvailable() {
+		if()
+		return false;
+		
+	}
+}

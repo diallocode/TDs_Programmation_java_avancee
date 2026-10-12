@@ -1,0 +1,33 @@
+package exercice_5;
+import java.util.LinkedList;
+import java.util.Queue;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Queue<Commande> f = null;
+		FileAttente file = new FileAttente(f);
+		
+		Producteurs p1 = new Producteurs(file);
+		Producteurs p2 = new Producteurs(file);
+		Producteurs p3 = new Producteurs(file);
+		Producteurs p4 = new Producteurs(file);
+		
+		Consomateurs c1 = new Consomateurs(file);
+		Consomateurs c2 = new Consomateurs(file);
+		Consomateurs c3 = new Consomateurs(file);
+		
+		Thread t1 = new Thread(p1);
+		Thread t2 = new Thread(p2);
+		Thread t3 = new Thread(p3);
+		Thread t4 = new Thread(p4);
+		
+		Thread T1 = new Thread(c1);
+		Thread T2 = new Thread(c2);
+		Thread T3 = new Thread(c3);
+
+	}
+
+}

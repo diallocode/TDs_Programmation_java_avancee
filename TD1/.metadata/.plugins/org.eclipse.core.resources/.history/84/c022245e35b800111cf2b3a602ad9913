@@ -1,0 +1,10 @@
+package Exercice3;
+
+public class Peuple {
+	private int nbHommes;
+	private Homme[] pays = new Homme[100];
+	
+	public void naissance(Homme h) {
+		
+	}
+}

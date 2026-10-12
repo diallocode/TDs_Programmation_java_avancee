@@ -1,0 +1,24 @@
+package exercice_3;
+
+public class Compteur {
+
+	private int nb_total_personne;
+	
+	public Compteur(int nb_personne) {
+		this.nb_total_personne = nb_personne;
+	}
+	
+	
+	public synchronized void incremente(int n) {
+		this.nb_total_personne += n; 
+	}
+	
+	public synchronized void decremente(int n) {
+		this.nb_total_personne -= n;
+	}
+	
+	public int getNbPersonne() {
+		return nb_total_personne;
+	}
+	
+}

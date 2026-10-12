@@ -1,0 +1,11 @@
+package Exercice3;
+
+public class Client extends Personne implements Homme{
+
+	
+	public Client(String name, String prenom) {
+		super(name, prenom);
+		// TODO Auto-generated constructor stub
+	}
+
+}

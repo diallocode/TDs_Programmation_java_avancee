@@ -1,0 +1,27 @@
+package exercice_5;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class Producteurs implements Runnable{
+	private Queue<Commande> file; 
+	
+	public Producteurs(Queue<Commande> file) {
+		this.file = file;
+	}
+
+	@Override
+	public void run() {
+		int i = 0;
+		int nbCommandes = 100;
+		while(i < nbCommandes) {
+			double solde = 1+100*33;
+			Commande c = new Commande(i, "Client_"+i, solde);
+			
+		}
+		
+	}
+	
+	
+	
+}

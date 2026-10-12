@@ -1,0 +1,18 @@
+package exercice_5;
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class System {
+	private static final int MAX_PROD = 4;
+	private static final int MAX_CONS = 3;
+	private static int nbCommande = 20;
+	private Queue<Commande> file; 
+	
+	public System(Queue<Commande> file) {
+		this.file = file;
+	}
+	
+
+	
+
+}

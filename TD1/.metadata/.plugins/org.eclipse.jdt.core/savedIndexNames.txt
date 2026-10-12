@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+/home/barrydiallo/Documents/Cours 4A/Java avancee/TD1/.metadata/.plugins/org.eclipse.jdt.core
+3668053601.index
+1865797976.index
+3919092853.index

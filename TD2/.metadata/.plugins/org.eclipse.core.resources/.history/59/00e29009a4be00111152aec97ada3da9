@@ -1,0 +1,30 @@
+package exercice_8;
+
+public class Main {
+    public static void main(String[] args) {
+        Serveur serveur = new Serveur();
+
+        int nombreClients = 10;
+        Thread[] threadsClients = new Thread[nombreClients];
+
+        // Création et démarrage des clients
+        for (int i = 0; i < nombreClients; i++) {
+            Client client = new Client(serveur, i + 1);
+            threadsClients[i] = new Thread(client);
+            threadsClients[i].start();
+        }
+
+        // Attendre que tous les clients aient terminé d'envoyer leurs requêtes
+        for (int i = 0; i < nombreClients; i++) {
+            try {
+                threadsClients[i].join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        // Arrêter proprement le serveur SEULEMENT MAINTENANT
+        serveur.arreterServeur();
+        System.out.println("Tous les traitements sont terminés et le serveur est arrêté.");
+    }
+}

@@ -1,0 +1,53 @@
+package Exercice6;
+
+public class EntiersTrier {
+	private int[] tab;
+	private int taille;
+	
+	public EntiersTrier(int[] tab, int taille) {
+		this.tab = tab;
+		this.taille = taille;
+	}
+
+	public void inserer(int entier) {
+	    int i = taille - 1;
+	    
+	    while (i >= 0 && tab[i] > entier) {
+	        tab[i + 1] = tab[i];
+	        i--;
+	    }
+	    
+	    tab[i + 1] = entier;
+	    
+	    
+	}
+	
+	public void retirer(int entier) {
+	    int index = -1;
+	    
+	    for (int i = 0; i < taille; i++) {
+	        if (tab[i] == entier) {
+	            index = i;
+	            break;
+	        }
+	    }
+	    
+	    if (index != -1) {
+	        for (int i = index; i < taille - 1; i++) {
+	            tab[i] = tab[i + 1];
+	        }
+	        taille--;
+	    }
+	}
+	
+	
+	public void afficher() {
+		
+		System.out.println("Ceci est un nouveau affichage");
+		
+			for(int i = 0; i<taille; i++) {
+				System.out.println(tab[i]);
+			}
+	}
+
+}

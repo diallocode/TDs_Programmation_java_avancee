@@ -1,0 +1,28 @@
+package exercice_6;
+import java.util.Random;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// Places
+		int MAX_PLACES = 100;
+		int[] tab = null;		
+		// All places is available 
+		for(int i = 0; i< MAX_PLACES; i++) {
+			tab[i] = 0;
+		}
+		SystemReservation s = new SystemReservation(tab,MAX_PLACES);
+		
+		int NB_THREADS = 50;
+		Utilisateur[] users = new Utilisateur[NB_THREADS];
+		Random r = new Random();
+		for(int i = 0; i<NB_THREADS; i++) {
+			int alea = r.nextInt(10);
+			users[i] = new Utilisateur(s, alea);
+		}
+		
+		
+
+	}
+
+}

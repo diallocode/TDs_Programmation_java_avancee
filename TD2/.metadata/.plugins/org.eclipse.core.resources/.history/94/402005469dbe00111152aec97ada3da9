@@ -1,0 +1,17 @@
+package exercice_8;
+
+public class Requete{
+	private int id;
+	private String operation;
+	private int value;
+	
+	public Requete(int id, String op, int val) {
+		this.id = id;
+		this.operation = op;
+		this.value = val;
+	}
+	
+	public synchronized String getOperation() {
+		return operation;
+	}
+}

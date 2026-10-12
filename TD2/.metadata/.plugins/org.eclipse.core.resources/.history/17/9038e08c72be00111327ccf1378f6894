@@ -1,0 +1,22 @@
+package exercice_6;
+
+public class Utilisateur implements Runnable{
+	private SystemReservation s;
+	private int nbPlaces;
+	
+	public Utilisateur(SystemReservation s, int nbP) {
+		this.s = s;
+		this.nbPlaces = nbP;
+	}
+	
+	@Override
+	public void run() {
+		int i = 0;
+		while(i < nbPlaces) {
+			int r = 
+		}
+		
+	}
+	
+
+}

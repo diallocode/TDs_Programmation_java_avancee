@@ -1,0 +1,29 @@
+package exercice_2;
+
+public class Compte {
+	private double solde;
+	
+	public Compte(double solde) {
+		this.solde=solde;
+	}
+	
+	
+	
+	public void afficherSolde() {
+		
+	}
+	
+	
+	
+	public double getSolde() {
+		
+		return 1.2;
+	}
+	
+	
+	
+	public void modifSolde() {
+		
+	}
+
+}

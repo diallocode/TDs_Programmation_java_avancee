@@ -1,0 +1,11 @@
+package exercice_3;
+
+public class Jardin {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Compteur c = new Compteur(100);
+
+	}
+
+}

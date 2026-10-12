@@ -1,0 +1,12 @@
+package exercice_6;
+
+public class Utilisateur implements Runnable{
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+}

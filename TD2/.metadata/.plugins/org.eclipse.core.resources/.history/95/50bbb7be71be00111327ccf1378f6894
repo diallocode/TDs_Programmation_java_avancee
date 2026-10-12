@@ -1,0 +1,17 @@
+package exercice_6;
+
+public class Utilisateur implements Runnable{
+	private SystemReservation s;
+	
+	public Utilisateur(SystemReservation s) {
+		this.s = s;
+	}
+	
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+}

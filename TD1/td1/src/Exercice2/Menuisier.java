@@ -1,0 +1,16 @@
+package Exercice2;
+
+public class Menuisier extends Personne{
+
+	public Menuisier(String name) {
+		super(name);
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	@Override 
+	public void afficher() {
+		System.out.println("Je suis " + name + " le forgeron");
+	}
+
+}

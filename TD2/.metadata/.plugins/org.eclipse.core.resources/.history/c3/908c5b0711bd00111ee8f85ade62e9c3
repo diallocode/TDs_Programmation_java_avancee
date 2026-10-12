@@ -1,0 +1,14 @@
+package exercice_3;
+
+public class Entre {
+	
+	private Compteur c;
+	
+	public Entre(Compteur c) {
+		this.c = c;
+	}
+	
+	public void entrer() {
+		c.incremente(0); // Aleatoire
+	}
+}

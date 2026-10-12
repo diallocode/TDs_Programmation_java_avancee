@@ -1,0 +1,22 @@
+package exercice_8;
+
+public class Worker implements Runnable {
+	private Requete r;
+	
+	public Worker(Requete r) {
+		this.r = r;
+	}
+	
+	@Override
+	public void run() {
+		int resultat = 0;
+		switch(r.getOperation()) {
+		case "SQUARE" -> resultat = r.getId()*r.getValue();
+		case "ADD" -> resultat = r.getId()+r.getValue();
+		case "SUB" -> resultat = -r.getId()+r.getValue();
+		case "DIV" -> resultat = r.getValue()/r.getId();
+		default -> throw new IllegalArgumentException("Opération inconnue : "+ r.getOperation());
+		};
+	}
+
+}

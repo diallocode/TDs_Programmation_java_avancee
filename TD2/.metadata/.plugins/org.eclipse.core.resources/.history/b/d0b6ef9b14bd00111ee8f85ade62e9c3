@@ -1,0 +1,12 @@
+package exercice_4;
+
+public class Compte {
+	private int id;
+	private double solde = 1000;
+	
+	public Compte(int id) {
+		this.id = id;
+	}
+	
+	
+}

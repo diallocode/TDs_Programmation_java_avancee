@@ -1,0 +1,47 @@
+package exercice_8;
+
+import java.util.concurrent.Callable;
+
+public class Worker implements Callable<Resultat> {
+	private Requete r;
+	
+	public Worker(Requete r) {
+		this.r = r;
+	}
+	
+
+	/*
+	public Resultat call() throws Exception {
+		try {
+			Resultat resultat = 0;
+			switch(r.getOperation()) {
+			case "SQUARE" -> resultat = new (r.getId()*r.getValue());
+			case "ADD" -> resultat = r.getId()+r.getValue();
+			case "SUB" -> resultat = -r.getId()+r.getValue();
+			case "DIV" -> resultat = r.getValue()/r.getId();
+			default -> throw new IllegalArgumentException("Opération inconnue : "+ r.getOperation());
+			};
+			return resultat;
+			
+		} catch (Exception e) {
+			return new Resultat(r.getId(), e.getMessage());
+		}
+	}	*/
+	
+	@Override
+    public Resultat call() throws Exception {
+        try {
+           
+            if ("SQUARE".equalsIgnoreCase(r.getOperation())) {
+                double res = r.getValue() * r.getValue();
+                return new Resultat(r.getId(), res);
+            } else {
+                return new Resultat(r.getId(), "Opération inconnue");
+            }
+        } catch (Exception e) {
+            
+            return new Resultat(r.getId(), e.getMessage());
+        }
+    }
+
+}

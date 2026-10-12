@@ -1,0 +1,30 @@
+package exercice_8;
+
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+
+public class Client implements Runnable {
+    private Serveur serveur;
+    private int clientId;
+
+    public Client(Serveur serveur, int clientId) {
+        this.serveur = serveur;
+        this.clientId = clientId;
+    }
+
+    @Override
+    public void run() {
+        Requete requete = new Requete(clientId, "SQUARE", 25.0);
+        
+        // Envoi de la requête au serveur, qui la transmet au pool de threads
+        Future<Resultat> futureResultat = serveur.recevoirRequete(requete);
+        
+        try {
+            // Récupération bloquante du résultat asynchrone
+            Resultat resultat = futureResultat.get();
+            System.out.println("Client " + clientId + " -> " + resultat);
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+}

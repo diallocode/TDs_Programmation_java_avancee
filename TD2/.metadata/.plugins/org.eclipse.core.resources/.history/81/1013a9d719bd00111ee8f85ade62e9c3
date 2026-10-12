@@ -1,0 +1,20 @@
+package exercice_4;
+
+public class Compte {
+	private int id;
+	private double solde = 1000;
+	
+	public Compte(int id) {
+		this.id = id;
+	}
+	
+	public synchronized void retirer(double m) {
+		if(solde > 0) {
+			this.solde -= m;
+		}
+	}
+	
+	public synchronized void ajouter(double m) {
+		this.solde += m;
+	}
+}

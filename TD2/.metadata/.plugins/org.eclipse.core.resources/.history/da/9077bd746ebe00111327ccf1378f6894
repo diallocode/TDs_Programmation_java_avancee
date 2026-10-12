@@ -1,0 +1,13 @@
+package exercice_6;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// Places
+		int MAX_PLACES;
+		SystemReservation s = new SystemReservation();
+		
+
+	}
+
+}

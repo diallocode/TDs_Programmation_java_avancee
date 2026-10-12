@@ -1,0 +1,9 @@
+package exercice_5;
+
+public class Consomateurs {
+	private Commande c;
+	
+	public Consomateurs(Commande c) {
+		this.c = c;
+	}
+}

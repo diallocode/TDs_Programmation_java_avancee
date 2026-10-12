@@ -1,0 +1,22 @@
+package exercice_8;
+
+public class Worker implements Runnable {
+	private Requete r;
+	
+	public Worker(Requete r) {
+		this.r = r;
+	}
+	
+	@Override
+	public void run() {
+		int op = 4;
+		String operation = switch(op) {
+		case 1 -> "SQUARE";
+		case 2 -> "ADD";
+		case 3 -> "SUB";
+		case 4 -> "DIV";
+		default -> throw new IllegalArgumentException("Unexpected value: " + op);
+		};
+	}
+
+}

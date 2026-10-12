@@ -1,0 +1,23 @@
+package exercice_8;
+
+public class Requete implements Runnable{
+	private int id;
+	private String operation;
+	private int value;
+	
+	public Requete(int id, String op, int val) {
+		this.id = id;
+		this.operation = op;
+		this.value = val;
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		 
+	}
+	
+	
+	
+	
+}
