@@ -1,0 +1,6 @@
+target/
+classes/
+*.class
+*.ser
+courses_maj.txt
+sauvegarde.txt
